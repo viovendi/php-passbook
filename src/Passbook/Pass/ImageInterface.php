@@ -41,4 +41,16 @@ interface ImageInterface
      * @param boolean
      */
     public function isRetina();
+
+    /**
+     * Sets image is high retina
+     * @param boolean
+     */
+    public function setIsHighRetina($isRetina);
+
+    /**
+     * Returns image is high retina
+     * @param boolean
+     */
+    public function isHighRetina();
 }

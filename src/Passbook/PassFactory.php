@@ -171,7 +171,10 @@ class PassFactory
         /** @var \Passbook\Pass\Image $image */
         foreach ($pass->getImages() as $image) {
             $fileName = $passDir . $image->getContext();
-            if ($image->isRetina()) {
+            if ($image->isHighRetina()) {
+                $fileName .= '@3x';
+            }
+            else if ($image->isRetina()) {
                 $fileName .= '@2x';
             }
             $fileName .= '.'.$image->getExtension();
@@ -191,7 +194,10 @@ class PassFactory
             // Localization images
             foreach ($localization->getImages() as $image) {
                 $fileName = $localizationDir . $image->getContext();
-                if ($image->isRetina()) {
+                if ($image->isHighRetina()) {
+                    $fileName .= '@3x';
+                }
+                else if ($image->isRetina()) {
                     $fileName .= '@2x';
                 }
                 $fileName .= '.'.$image->getExtension();

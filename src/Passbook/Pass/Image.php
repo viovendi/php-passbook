@@ -40,6 +40,12 @@ class Image extends \SplFileObject implements ImageInterface
      */
     protected $isRetina;
 
+    /**
+     * The file name of high retina version of the image ends with @3x.png.
+     * @var bool
+     */
+    protected $isHighRetina;
+
     public function __construct($filename, $context)
     {
         // Call parent
@@ -82,5 +88,23 @@ class Image extends \SplFileObject implements ImageInterface
     public function isRetina()
     {
         return $this->isRetina;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setIsHighRetina($isHighRetina)
+    {
+        $this->isHighRetina = $isHighRetina;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isHighRetina()
+    {
+        return $this->isHighRetina;
     }
 }
