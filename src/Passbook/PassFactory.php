@@ -278,7 +278,8 @@ class PassFactory
 
         $zip = new ZipArchive();
 
-        if (!$zip->open($destination, $this->isOverwrite() ? ZIPARCHIVE::OVERWRITE : ZipArchive::CREATE)) {
+        $shouldOverwrite = $this->isOverwrite() ? ZipArchive::OVERWRITE : 0;
+        if (!$zip->open($destination, ZipArchive::CREATE | $shouldOverwrite)) {
             throw new FileException("Couldn't open zip file.");
         }
 
